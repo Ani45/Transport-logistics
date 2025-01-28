@@ -1,0 +1,22 @@
+.contact-info {
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.text {
+    background-color: #2274D5;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 30rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+    text-wrap: balance;
+    font-family: Belepotan, sans-serif;
+}
+
+.background-img {
+    top: 70%;
+    left: 25%;
+    width: 50rem;
+}
