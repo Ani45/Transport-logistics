@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логистика | Оформление заказа</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/order.css">
+    <script src="scripts/order.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo start">
+            <span>Логи</span>
+        </div>
+
+        <div class="end">
+            <nav class="navigation">
+                <ul class="list">
+                    <li class="list__item"><a href="catalog.html" class="list__item__link">Каталог</a></li>
+                    <li class="list__item"><a href="advantages.html" class="list__item__link">Преимущества</a></li>
+                    <li class="list__item"><a href="order.html" class="list__item__link">Заказать</a></li>
+                    <li class="list__item"><a href="contacts.html" class="list__item__link">Контакты</a></li>
+                    <li class="list__item"><a href="login.html" class="list__item__link login">Вход</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <section class="section">
+            <div class="container">
+                <form class="order-form" id="orderForm">
+                    <input class="order-input" id="startPoint" type="text" placeholder="Откуда" required>
+                    <input class="order-input" id="endPoint" type="text" placeholder="Куда" required>
+                    <input class="order-input" id="weight" type="number" placeholder="Вес (кг)" required min="1">
+                    
+                    <label for="progressBar">Расстояние (км):</label>
+                    <input id="progressBar" type="range" min="0" max="10000" step="10" value="0">
+                    <span id="currentKm">0 км</span>
+                    <span id="totalSum">Сумма: 0 руб.</span>
+                    
+                    <button class="button" type="submit">Оформить заказ</button>
+                </form>
+                
+            </div>
+        </section>
+        <div class="overlay" id="overlay">
+            <div class="overlay-content">
+                <button class="close-btn" id="close-btn">×</button>
+                <h2>Спасибо за заявку!<br> Оставайтесь на свзяи в течение суток.<br> Мы с вами свяжемся.</h2>
+            </div>
+        </div>
+    </main>
+    <img src="imgs/rotated.png" alt="" class="background-img">
+</body>
+<script>
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('close-btn');
+    const form = document.getElementById('orderForm');
+    const confirmBtn = document.getElementById('confirmBtn'); // Кнопка подтверждения
+
+    // Показать оверлей
+    function showOverlay() {
+        overlay.classList.add('visible');
+    }
+
+    // Скрыть оверлей
+    function hideOverlay() {
+        overlay.classList.remove('visible');
+    }
+
+    // Обработчик отправки формы
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Останавливаем отправку формы
+        showOverlay(); // Показываем оверлей
+    });
+
+    // Обработчики закрытия оверлея
+    closeBtn.addEventListener('click', hideOverlay);
+    confirmBtn.addEventListener('click', hideOverlay);
+</script>
+
+</html>

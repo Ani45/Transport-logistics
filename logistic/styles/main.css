@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'Belepotan';
+    src: url('/fonts/Belepotan.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Misto';
+    src: url('/fonts/Misto.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Italic';
+    src: url('/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
+}
+
+body {
+    background-color: #F1F1F1;
+}
+
+.container {
+    max-width: 66rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.button {
+    background-color: #0A7BCF;
+    color: #fff;
+    border-radius: 1rem;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    font-family: Misto, sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+
+.list {
+    display: flex;
+    column-gap: 2rem;
+    font-size: 1.5rem;
+    font-family: Belepotan, sans-serif;
+}
+
+.login {
+    background-color: #2274D5;
+    border-radius: 2rem;
+    padding-inline: 1.5rem;
+    color: #fff;
+}
+
+/* Main */ 
+
+
+
+
+.section {
+    position: relative;
+}
+
+.container__end {
+    max-width: fit-content;
+    margin-left: auto;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+    font-family: PlayFairDisplay, sans-serif;
+
+    & input {
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        border-radius: 2rem;
+        border: 1px solid #808080;
+        max-width: fit-content;
+    }
+
+    & button {
+        max-width: fit-content;
+        background-color: #2274D5;
+        border-radius: 1rem;
+        padding: 1rem 2.9rem;
+        color: #fff;
+    }
+}
+
+h1.title {
+    color: #0A7BCF;
+    text-wrap: pretty;
+    text-align: center;
+    font-family: PlayFairDisplay, sans-serif;
+}
+
+.background-img {
+    position: absolute;
+    right: 40%;
+    top: 30%;
+}
+
+/* Оверлей */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px); /* Замыливание */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+.overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay-content {
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.overlay-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-family: Belepotan, sans-serif;
+    color: #2274D5;
+}
+
+.close-btn {
+    position: absolute;
+    top: -3rem;
+    right: -2rem;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
