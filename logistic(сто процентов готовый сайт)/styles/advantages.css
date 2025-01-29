@@ -1,0 +1,9 @@
+.advant-list {
+    display: flex;
+    margin-top: 5rem;
+    column-gap: 2rem;
+}
+
+.title {
+    text-align: left !important;
+}

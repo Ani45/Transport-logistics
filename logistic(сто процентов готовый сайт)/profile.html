@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логистика | Личный кабинет</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo start">
+            <span>Логи</span>
+        </div>
+
+        <div class="end">
+            <nav class="navigation">
+                <ul class="list">
+                    <li class="list__item"><a href="catalog.html" class="list__item__link">Каталог</a></li>
+                    <li class="list__item"><a href="advantages.html" class="list__item__link">Преимущества</a></li>
+                    <li class="list__item"><a href="order.html" class="list__item__link">Заказать</a></li>
+                    <li class="list__item"><a href="contacts.html" class="list__item__link">Контакты</a></li>
+                    <li class="list__item"><a href="login.html" class="list__item__link login">Выход</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <section class="section">
+            <div class="container">
+                <h1 class="title">Личный кабинет</h1>
+                <div class="order-info">
+                    <span>Ваши заказы:</span>
+
+                </div>
+        </section>
+    </main>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const ordersContainer = document.querySelector('.order-info');
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+    if (orders.length === 0) {
+        ordersContainer.innerHTML += '<p>Нет заказов</p>';
+    } else {
+        orders.forEach((order, index) => {
+            const orderHTML = `
+                <div class="order">
+                    <p>Заказ №${index + 1}</p>
+                    <p>Откуда: ${order.startPoint}</p>
+                    <p>Куда: ${order.endPoint}</p>
+                    <p>Вес: ${order.weight} кг</p>
+                    <p>Расстояние: ${order.distance} км</p>
+                    <p>Стоимость: ${order.cost} руб.</p>
+                </div>
+            `;
+            ordersContainer.innerHTML += orderHTML;
+        });
+    }
+});
+
+</script>
+
+</html>
